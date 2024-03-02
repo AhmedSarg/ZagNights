@@ -57,14 +57,16 @@ class _RegisterNamePageState extends State<RegisterNamePage> {
               label: AppStrings.registerNameScreenFirstNameLabel.tr(),
               controller: _firstNameController,
               focusNode: _firstNameFocusNode,
-              validator: AppValidators.validateLogin,
+              nextFocus: _lastNameFocusNode,
+              validator: AppValidators.validateName,
             ),
             const SizedBox(height: AppSize.s30),
             CustomTextField(
               label: AppStrings.registerNameScreenLastNameLabel.tr(),
               controller: _lastNameController,
               focusNode: _lastNameFocusNode,
-              validator: AppValidators.validateLogin,
+              nextFocus: null,
+              validator: AppValidators.validateName,
             ),
             const Spacer(),
             SizedBox(

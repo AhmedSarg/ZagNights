@@ -13,7 +13,9 @@ class SplashViewModel extends BaseCubit
   @override
   void start() async {
     await _loadImages(_context);
-    emit(SplashNavigateState());
+    Future.delayed(const Duration(seconds: 1), () {
+      emit(SplashNavigateState());
+    });
   }
 }
 

@@ -28,5 +28,6 @@
   "registerNameScreenTitle": "أكتب\nأسمك",
   "registerNameScreenFirstNameLabel": "الأسم الأول",
   "registerNameScreenLastNameLabel": "الأسم الأخير",
-  "registerNameScreenButton": "التالي"
+  "registerNameScreenButton": "التالي",
+  "validationsArabicAndEnglishLetters": "استعمل حروف فقط"
 }

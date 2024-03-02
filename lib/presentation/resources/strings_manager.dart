@@ -41,4 +41,5 @@ class AppStrings {
 
   //Validation Messages
   static const String validationsFieldRequired = "validationsFieldRequired";
+  static const String validationsArabicAndEnglishLetters = "validationsArabicAndEnglishLetters";
 }

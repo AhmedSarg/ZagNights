@@ -5,21 +5,17 @@ import '../../resources/strings_manager.dart';
 class AppValidators {
   AppValidators._();
 
-  // static String? validateName(String? val) {
-  //   if (val == null) {
-  //     return AppStrings.validationsFieldRequired.tr();
-  //   } else if (val.trim().length <= 6) {
-  //     return AppStrings.validationsFieldLengthMoreThen6.tr();
-  //   } else {
-  //     List<String> names = val.trim().split(" ");
-  //     names.removeWhere((element) => element.length < 3);
-  //     if (names.length < 3) {
-  //       return AppStrings.validationsFullNameErrorText.tr();
-  //     } else {
-  //       return null;
-  //     }
-  //   }
-  // }
+  static String? validateName(String? val) {
+    RegExp nameRegex = RegExp(r"^(?=.{2,30}$)[\u0600-\u065F\u066A-\u06EF\u06FA-\u06FFa-zA-Z]+(?:\s[\u0600-\u065F\u066A-\u06EF\u06FA-\u06FFa-zA-Z]+)?$");
+    if (val == null || val.isEmpty) {
+      return AppStrings.validationsFieldRequired.tr();
+    } else if (!nameRegex.hasMatch(val)) {
+      return AppStrings.validationsArabicAndEnglishLetters.tr();
+    }
+    else {
+      return null;
+    }
+  }
 
   // static String? validateEmail(String? val) {
   //   RegExp emailRegex = RegExp(

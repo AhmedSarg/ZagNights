@@ -28,5 +28,6 @@
   "registerNameScreenTitle": "Enter Your\nName",
   "registerNameScreenFirstNameLabel": "First Name",
   "registerNameScreenLastNameLabel": "Last Name",
-  "registerNameScreenButton": "Next"
+  "registerNameScreenButton": "Next",
+  "validationsArabicAndEnglishLetters": "Use Letters Only"
 }
