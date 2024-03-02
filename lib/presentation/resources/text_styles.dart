@@ -9,7 +9,8 @@ import 'styles_manager.dart';
 class AppTextStyles {
   AppTextStyles._();
 
-  //base
+  //Base States
+
   static TextStyle baseStatesMessageTextStyle(BuildContext? context) =>
       getBoldStyle(
         fontFamily: FontConstants.english,
@@ -25,6 +26,7 @@ class AppTextStyles {
       );
 
   //Selection Screen
+
   static TextStyle selectionScreenLoginButtonTextStyle(BuildContext? context) =>
       getRegularStyle(
         fontFamily: (context!.language == Languages.en)
@@ -43,17 +45,9 @@ class AppTextStyles {
         fontSize: FontSize.f20,
       );
 
-  //Login Screen
-  static TextStyle loginTextFieldValueTextStyle(BuildContext? context) =>
-      getRegularStyle(
-        fontFamily: (context!.language == Languages.en)
-            ? FontConstants.english
-            : FontConstants.arabic,
-        color: ColorManager.white,
-        fontSize: FontSize.f18,
-      );
+  //Text Fields
 
-  static TextStyle loginTextFieldLabelTextStyle(BuildContext? context) =>
+  static TextStyle textFieldLabelTextStyle(BuildContext? context) =>
       getMediumStyle(
         fontFamily: (context!.language == Languages.en)
             ? FontConstants.english
@@ -62,7 +56,38 @@ class AppTextStyles {
         fontSize: FontSize.f18,
       );
 
+  static TextStyle textFieldValueTextStyle(BuildContext? context) =>
+      getRegularStyle(
+        fontFamily: (context!.language == Languages.en)
+            ? FontConstants.english
+            : FontConstants.arabic,
+        color: ColorManager.white,
+        fontSize: FontSize.f18,
+      );
+
+  //Login Screen
+
   static TextStyle loginScreenLoginButtonTextStyle(BuildContext? context) =>
+      getRegularStyle(
+        fontFamily: (context!.language == Languages.en)
+            ? FontConstants.english
+            : FontConstants.arabic,
+        color: ColorManager.white,
+        fontSize: FontSize.f20,
+      );
+
+  //Register Screen
+
+  static TextStyle registerNameScreenTitleTextStyle(BuildContext? context) =>
+      getBoldStyle(
+        fontFamily: (context!.language == Languages.en)
+            ? FontConstants.english
+            : FontConstants.arabic,
+        color: ColorManager.tertiary,
+        fontSize: FontSize.f48,
+      );
+
+  static TextStyle registerNameScreenButtonTextStyle(BuildContext? context) =>
       getRegularStyle(
         fontFamily: (context!.language == Languages.en)
             ? FontConstants.english

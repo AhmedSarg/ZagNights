@@ -9,7 +9,7 @@ Languages appLanguage = Languages.en;
 
 class AppLanguages {
   static const List<Locale> locals = [Locale('en'), Locale('ar')];
-  static const Locale startLocal = Locale('en');
+  static const Locale startLocal = Locale('ar');
   static const Locale fallBackLocal = Locale('en');
   static String translationsPath = 'assets/translations';
 

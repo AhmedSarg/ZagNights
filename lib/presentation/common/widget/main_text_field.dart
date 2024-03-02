@@ -33,23 +33,31 @@ class CustomTextField extends StatefulWidget {
 }
 
 class _CustomTextFieldState extends State<CustomTextField> {
-  String? errorText;
-  bool focused = false;
   late bool hidden = widget.obscureText;
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      focusNode: widget.focusNode,
       validator: widget.validator,
       cursorColor: ColorManager.tertiary,
       cursorWidth: AppSize.s1,
       selectionControls: CupertinoTextSelectionControls(),
-      style: AppTextStyles.loginTextFieldValueTextStyle(context),
+      style: AppTextStyles.textFieldValueTextStyle(context),
       obscureText: hidden,
+      textInputAction: widget.nextFocus == null
+          ? TextInputAction.done
+          : TextInputAction.next,
+      onEditingComplete: () {
+        widget.focusNode.unfocus();
+        if (widget.nextFocus != null) {
+          widget.nextFocus!.requestFocus();
+        }
+      },
       decoration: InputDecoration(
         label: Text(
           widget.label,
-          style: AppTextStyles.loginTextFieldLabelTextStyle(context),
+          style: AppTextStyles.textFieldLabelTextStyle(context),
         ),
         suffixIcon: widget.obscureText
             ? IconButton(

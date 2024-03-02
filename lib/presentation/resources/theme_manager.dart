@@ -1,5 +1,3 @@
-import 'package:zag_nights/presentation/resources/styles_manager.dart';
-
 import 'color_manager.dart';
 import 'values_manager.dart';
 import 'package:flutter/material.dart';

@@ -24,5 +24,9 @@
   "loginScreenEmailLabel": "Email",
   "loginScreenPasswordLabel": "Password",
   "loginScreenLoginButton": "Login",
-  "validationsFieldRequired": "Field is Required"
+  "validationsFieldRequired": "Field is Required",
+  "registerNameScreenTitle": "Enter Your\nName",
+  "registerNameScreenFirstNameLabel": "First Name",
+  "registerNameScreenLastNameLabel": "Last Name",
+  "registerNameScreenButton": "Next"
 }

@@ -1,14 +1,11 @@
 import 'package:easy_localization/easy_localization.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
-import 'package:zag_nights/app/extensions.dart';
-import 'package:zag_nights/presentation/common/validators/validators.dart';
-import 'package:zag_nights/presentation/common/widget/main_text_field.dart';
-import 'package:zag_nights/presentation/resources/color_manager.dart';
-import 'package:zag_nights/presentation/resources/strings_manager.dart';
 
+import '../../common/validators/validators.dart';
+import '../../common/widget/main_text_field.dart';
 import '../../resources/assets_manager.dart';
+import '../../resources/color_manager.dart';
+import '../../resources/strings_manager.dart';
 import '../../resources/text_styles.dart';
 import '../../resources/values_manager.dart';
 
@@ -72,6 +69,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       controller: _emailController,
                       focusNode: _emailFocusNode,
                       validator: AppValidators.validateLogin,
+                      nextFocus: _passwordFocusNode,
                     ),
                     const SizedBox(height: AppSize.s30),
                     CustomTextField(
@@ -80,6 +78,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       focusNode: _passwordFocusNode,
                       obscureText: true,
                       validator: AppValidators.validateLogin,
+                      nextFocus: null,
                     ),
                     const Spacer(),
                     SizedBox(

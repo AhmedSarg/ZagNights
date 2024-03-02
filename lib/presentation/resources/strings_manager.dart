@@ -33,6 +33,12 @@ class AppStrings {
   static const String loginScreenPasswordLabel = "loginScreenPasswordLabel";
   static const String loginScreenLoginButton = "loginScreenLoginButton";
 
+  //Register Name Screen
+  static const String registerNameScreenTitle = "registerNameScreenTitle";
+  static const String registerNameScreenFirstNameLabel = "registerNameScreenFirstNameLabel";
+  static const String registerNameScreenLastNameLabel = "registerNameScreenLastNameLabel";
+  static const String registerNameScreenButton = "registerNameScreenButton";
+
   //Validation Messages
   static const String validationsFieldRequired = "validationsFieldRequired";
 }

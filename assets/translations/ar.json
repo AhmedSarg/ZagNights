@@ -24,5 +24,9 @@
   "loginScreenEmailLabel": "البريد الألكتروني",
   "loginScreenPasswordLabel": "كلمة السر",
   "loginScreenLoginButton": "تسجيل الدخول",
-  "validationsFieldRequired": "هذا الحقل مطلوب"
+  "validationsFieldRequired": "هذا الحقل مطلوب",
+  "registerNameScreenTitle": "أكتب\nأسمك",
+  "registerNameScreenFirstNameLabel": "الأسم الأول",
+  "registerNameScreenLastNameLabel": "الأسم الأخير",
+  "registerNameScreenButton": "التالي"
 }
