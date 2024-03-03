@@ -25,6 +25,17 @@ class AppTextStyles {
         fontSize: FontSize.f14,
       );
 
+  //Main
+
+  static TextStyle appButtonTextStyle(BuildContext? context) =>
+      getRegularStyle(
+        fontFamily: (context!.language == Languages.en)
+            ? FontConstants.english
+            : FontConstants.arabic,
+        color: ColorManager.white,
+        fontSize: FontSize.f20,
+      );
+
   //Selection Screen
 
   static TextStyle selectionScreenLoginButtonTextStyle(BuildContext? context) =>
@@ -93,6 +104,21 @@ class AppTextStyles {
             ? FontConstants.english
             : FontConstants.arabic,
         color: ColorManager.white,
+        fontSize: FontSize.f20,
+      );
+
+  static TextStyle registerDetailsScreenTitleTextStyle(BuildContext? context) =>
+      getBoldStyle(
+        fontFamily: (context!.language == Languages.en)
+            ? FontConstants.english
+            : FontConstants.arabic,
+        color: ColorManager.tertiary,
+        fontSize: FontSize.f48,
+      );
+
+  static TextStyle registerDetailsScreenGenderTextStyle(BuildContext? context, Color color) =>
+      getBoldStyle(
+        color: color,
         fontSize: FontSize.f20,
       );
 

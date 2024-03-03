@@ -39,7 +39,15 @@ class AppStrings {
   static const String registerNameScreenLastNameLabel = "registerNameScreenLastNameLabel";
   static const String registerNameScreenButton = "registerNameScreenButton";
 
+  //Register Details Screen
+  static const String registerDetailsScreenTitle = "registerDetailsScreenTitle";
+  static const String registerDetailsScreenMale = "registerDetailsScreenMale";
+  static const String registerDetailsScreenFemale = "registerDetailsScreenFemale";
+  static const String registerDetailsScreenAgeLabel = "registerDetailsScreenAgeLabel";
+  static const String registerDetailsScreenButton = "registerDetailsScreenButton";
+
   //Validation Messages
   static const String validationsFieldRequired = "validationsFieldRequired";
   static const String validationsArabicAndEnglishLetters = "validationsArabicAndEnglishLetters";
+  static const String validationsNumbersOnly = "validationsNumbersOnly";
 }

@@ -16,18 +16,30 @@
   "noInternetError": "لا يوجد أنترنت",
   "emptyContent": "لا يوجد محتوي",
   "intentError": "لا يوجد محتوي",
+
   "areYouSure": "هل أنت متأكد؟",
   "sure": "نعم",
   "cancel": "لا",
+
+  "validationsFieldRequired": "هذا الحقل مطلوب",
+  "validationsArabicAndEnglishLetters": "استعمل حروف فقط",
+  "validationsNumbersOnly": "استعمل أرقام فقط",
+
   "selectionScreenLoginButton": "تسجيل الدخول",
   "selectionScreenRegisterButton": "انشاء حساب",
+
   "loginScreenEmailLabel": "البريد الألكتروني",
   "loginScreenPasswordLabel": "كلمة السر",
   "loginScreenLoginButton": "تسجيل الدخول",
-  "validationsFieldRequired": "هذا الحقل مطلوب",
+
   "registerNameScreenTitle": "أكتب\nأسمك",
   "registerNameScreenFirstNameLabel": "الأسم الأول",
   "registerNameScreenLastNameLabel": "الأسم الأخير",
   "registerNameScreenButton": "التالي",
-  "validationsArabicAndEnglishLetters": "استعمل حروف فقط"
+
+  "registerDetailsScreenTitle": "معلومات\nعنك",
+  "registerDetailsScreenMale": "ذكر",
+  "registerDetailsScreenFemale": "أنثي",
+  "registerDetailsScreenAgeLabel": "السن",
+  "registerDetailsScreenButton": "التالي"
 }

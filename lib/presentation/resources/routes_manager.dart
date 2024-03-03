@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:easy_localization/easy_localization.dart';
+import 'package:zag_nights/presentation/register_layout/pages/register_details_view.dart';
 import '../login_screen/view/login_view.dart';
 import '../register_layout/pages/register_name_view.dart';
 import '../register_layout/view/register_layout_view.dart';
@@ -14,10 +15,6 @@ class Routes {
   static const String selectionRoute = "/selection";
   static const String loginRoute = "/login";
   static const String registerRoute = "/register";
-  static const String registerNameRoute = "/registerName";
-  static const String registerDetailsRoute = "/registerDetails";
-  static const String registerContactRoute = "/registerContact";
-  static const String registerJobRoute = "/registerJob";
   static const String soonRoute = "/soon";
 }
 
@@ -34,8 +31,6 @@ class RouteGenerator {
         return MaterialPageRoute(builder: (_) => const LoginScreen());
       case Routes.registerRoute:
         return MaterialPageRoute(builder: (_) => const RegisterLayoutScreen());
-      case Routes.registerNameRoute:
-        return MaterialPageRoute(builder: (_) => const RegisterNamePage());
       default:
         return unDefinedRoute();
     }

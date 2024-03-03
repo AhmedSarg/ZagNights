@@ -38,6 +38,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      controller: widget.controller,
       focusNode: widget.focusNode,
       validator: widget.validator,
       cursorColor: ColorManager.tertiary,
@@ -48,6 +49,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
       textInputAction: widget.nextFocus == null
           ? TextInputAction.done
           : TextInputAction.next,
+      keyboardType: widget.keyboardType,
       onEditingComplete: () {
         widget.focusNode.unfocus();
         if (widget.nextFocus != null) {

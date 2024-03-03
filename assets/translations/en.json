@@ -16,18 +16,30 @@
   "noInternetError": "No Internet",
   "emptyContent": "Empty Content",
   "intentError": "Empty Intent",
+
   "areYouSure": "Are You Sure?",
   "sure": "Sure",
   "cancel": "Cancel",
+
+  "validationsFieldRequired": "Field is Required",
+  "validationsArabicAndEnglishLetters": "Use Letters Only",
+  "validationsNumbersOnly": "Enter Numbers Only",
+
   "selectionScreenLoginButton": "Login",
   "selectionScreenRegisterButton": "Create Account",
+
   "loginScreenEmailLabel": "Email",
   "loginScreenPasswordLabel": "Password",
   "loginScreenLoginButton": "Login",
-  "validationsFieldRequired": "Field is Required",
+
   "registerNameScreenTitle": "Enter Your\nName",
   "registerNameScreenFirstNameLabel": "First Name",
   "registerNameScreenLastNameLabel": "Last Name",
   "registerNameScreenButton": "Next",
-  "validationsArabicAndEnglishLetters": "Use Letters Only"
+
+  "registerDetailsScreenTitle": "Details\nAbout You",
+  "registerDetailsScreenMale": "Male",
+  "registerDetailsScreenFemale": "Female",
+  "registerDetailsScreenAgeLabel": "Age",
+  "registerDetailsScreenButton": "Next"
 }
