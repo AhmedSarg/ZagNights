@@ -1,5 +1,6 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:zag_nights/presentation/common/widget/app_button.dart';
 
 import '../../common/validators/validators.dart';
 import '../../common/widget/main_text_field.dart';
@@ -59,7 +60,8 @@ class _LoginScreenState extends State<LoginScreen> {
                     Expanded(
                       flex: 4,
                       child: Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: AppPadding.p30),
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: AppPadding.p30),
                         child: Image.asset(ImageAssets.logoLight),
                       ),
                     ),
@@ -81,26 +83,18 @@ class _LoginScreenState extends State<LoginScreen> {
                       nextFocus: null,
                     ),
                     const Spacer(),
-                    SizedBox(
-                      width: double.infinity,
-                      height: AppSize.s50,
-                      child: ElevatedButton(
-                        onPressed: () {
-                          if (_formKey.currentState!.validate()) {
-                            ScaffoldMessenger.of(context).showSnackBar(
-                              const SnackBar(
-                                content: Text('logged in'),
-                                duration: Duration(seconds: 1),
-                              ),
-                            );
-                          }
-                        },
-                        child: Text(
-                          AppStrings.loginScreenLoginButton.tr(),
-                          style: AppTextStyles.loginScreenLoginButtonTextStyle(
-                              context),
-                        ),
-                      ),
+                    AppButton(
+                      text: AppStrings.loginScreenLoginButton.tr(),
+                      onPressed: () {
+                        if (_formKey.currentState!.validate()) {
+                          ScaffoldMessenger.of(context).showSnackBar(
+                            const SnackBar(
+                              content: Text('logged in'),
+                              duration: Duration(seconds: 1),
+                            ),
+                          );
+                        }
+                      },
                     ),
                     const Spacer(),
                   ],

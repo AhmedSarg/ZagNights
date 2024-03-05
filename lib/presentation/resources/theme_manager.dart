@@ -78,7 +78,6 @@ ThemeData getApplicationTheme() {
       selectionHandleColor: ColorManager.tertiary
     ),
 
-
     // input decoration theme (text form field)
     inputDecorationTheme: InputDecorationTheme(
       // content padding

@@ -1,15 +1,16 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:zag_nights/domain/models/enums.dart';
-import 'package:zag_nights/presentation/common/validators/validators.dart';
-import 'package:zag_nights/presentation/common/widget/app_button.dart';
-import 'package:zag_nights/presentation/common/widget/main_text_field.dart';
-import 'package:zag_nights/presentation/register_layout/viewmodel/register_layout_viewmodel.dart';
-import 'package:zag_nights/presentation/resources/color_manager.dart';
 
+import '../../../domain/models/enums.dart';
+import '../../common/validators/validators.dart';
+import '../../common/widget/app_button.dart';
+import '../../common/widget/main_text_field.dart';
+import '../../resources/color_manager.dart';
 import '../../resources/strings_manager.dart';
+import '../../resources/styles_manager.dart';
 import '../../resources/text_styles.dart';
 import '../../resources/values_manager.dart';
+import '../viewmodel/register_layout_viewmodel.dart';
 
 class RegisterDetailsPage extends StatelessWidget {
   const RegisterDetailsPage(
@@ -34,24 +35,38 @@ class RegisterDetailsPage extends StatelessWidget {
             children: [
               const Spacer(),
               Text(
-                AppStrings.registerDetailsScreenTitle.tr(),
-                style: AppTextStyles.registerNameScreenTitleTextStyle(context),
+                AppStrings.registerDetailsPageTitle.tr(),
+                style: AppTextStyles.registerPagesTitleTextStyle(context),
               ),
               const Spacer(),
-              GenderSelector(viewModel: viewModel),
+              FormField(
+                validator: (value) {
+                  if (viewModel.getGender == null) {
+                    return AppStrings.validationsFieldRequired.tr();
+                  }
+                  return null;
+                },
+                initialValue: null,
+                builder: (context) {
+                  return GenderSelector(
+                      viewModel: viewModel, error: context.errorText);
+                },
+              ),
               const SizedBox(height: AppSize.s30),
               CustomTextField(
                 controller: viewModel.getAgeController,
                 focusNode: FocusNode(),
                 validator: AppValidators.validateAge,
-                label: AppStrings.registerDetailsScreenAgeLabel.tr(),
+                label: AppStrings.registerDetailsPageAgeLabel.tr(),
                 keyboardType: TextInputType.number,
               ),
               const Spacer(),
               AppButton(
-                text: AppStrings.registerDetailsScreenButton.tr(),
+                text: AppStrings.registerDetailsPageButton.tr(),
                 onPressed: () {
-                  if (formKey.currentState!.validate()) {}
+                  if (formKey.currentState!.validate()) {
+                    viewModel.nextPage();
+                  }
                 },
               ),
               const Spacer(),
@@ -64,36 +79,58 @@ class RegisterDetailsPage extends StatelessWidget {
 }
 
 class GenderSelector extends StatelessWidget {
-  const GenderSelector({super.key, required this.viewModel});
+  const GenderSelector({
+    super.key,
+    required this.viewModel,
+    required this.error,
+  });
 
   final RegisterLayoutViewModel viewModel;
+  final String? error;
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: AppSize.s50,
-      decoration: BoxDecoration(
-        border: Border.all(color: ColorManager.white, width: AppSize.s1),
-        borderRadius: BorderRadius.circular(AppSize.s20),
-      ),
-      clipBehavior: Clip.antiAliasWithSaveLayer,
-      child: Row(
-        children: [
-          GenderTile(
-            viewModel: viewModel,
-            gender: Gender.male,
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Container(
+          height: AppSize.s50,
+          decoration: BoxDecoration(
+            border: Border.all(color: ColorManager.white, width: AppSize.s1),
+            borderRadius: BorderRadius.circular(AppSize.s20),
           ),
-          const VerticalDivider(
-            thickness: AppSize.s1,
-            width: AppSize.s1,
-            color: ColorManager.white,
+          clipBehavior: Clip.antiAliasWithSaveLayer,
+          child: Row(
+            children: [
+              GenderTile(
+                viewModel: viewModel,
+                gender: Gender.male,
+              ),
+              const VerticalDivider(
+                thickness: AppSize.s1,
+                width: AppSize.s1,
+                color: ColorManager.white,
+              ),
+              GenderTile(
+                viewModel: viewModel,
+                gender: Gender.female,
+              ),
+            ],
           ),
-          GenderTile(
-            viewModel: viewModel,
-            gender: Gender.female,
-          ),
-        ],
-      ),
+        ),
+        const SizedBox(height: AppSize.s8),
+        error == null
+            ? const SizedBox()
+            : Padding(
+                padding: const EdgeInsets.symmetric(horizontal: AppPadding.p16),
+                child: Text(
+                  error!,
+                  style: getThinStyle(
+                    color: Colors.red.withOpacity(.7),
+                  ),
+                ),
+              ),
+      ],
     );
   }
 }
@@ -122,9 +159,9 @@ class GenderTile extends StatelessWidget {
           alignment: Alignment.center,
           child: Text(
             gender == Gender.male
-                ? AppStrings.registerDetailsScreenMale.tr()
-                : AppStrings.registerDetailsScreenFemale.tr(),
-            style: AppTextStyles.registerDetailsScreenGenderTextStyle(
+                ? AppStrings.registerDetailsPageMale.tr()
+                : AppStrings.registerDetailsPageFemale.tr(),
+            style: AppTextStyles.registerDetailsPageGenderTextStyle(
               context,
               selected ? ColorManager.primary : ColorManager.white,
             ),

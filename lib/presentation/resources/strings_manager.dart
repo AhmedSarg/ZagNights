@@ -33,21 +33,43 @@ class AppStrings {
   static const String loginScreenPasswordLabel = "loginScreenPasswordLabel";
   static const String loginScreenLoginButton = "loginScreenLoginButton";
 
-  //Register Name Screen
-  static const String registerNameScreenTitle = "registerNameScreenTitle";
-  static const String registerNameScreenFirstNameLabel = "registerNameScreenFirstNameLabel";
-  static const String registerNameScreenLastNameLabel = "registerNameScreenLastNameLabel";
-  static const String registerNameScreenButton = "registerNameScreenButton";
+  //Register Name Page
+  static const String registerNamePageTitle = "registerNamePageTitle";
+  static const String registerNamePageFirstNameLabel = "registerNamePageFirstNameLabel";
+  static const String registerNamePageLastNameLabel = "registerNamePageLastNameLabel";
+  static const String registerNamePageButton = "registerNamePageButton";
 
-  //Register Details Screen
-  static const String registerDetailsScreenTitle = "registerDetailsScreenTitle";
-  static const String registerDetailsScreenMale = "registerDetailsScreenMale";
-  static const String registerDetailsScreenFemale = "registerDetailsScreenFemale";
-  static const String registerDetailsScreenAgeLabel = "registerDetailsScreenAgeLabel";
-  static const String registerDetailsScreenButton = "registerDetailsScreenButton";
+  //Register Details Page
+  static const String registerDetailsPageTitle = "registerDetailsPageTitle";
+  static const String registerDetailsPageMale = "registerDetailsPageMale";
+  static const String registerDetailsPageFemale = "registerDetailsPageFemale";
+  static const String registerDetailsPageAgeLabel = "registerDetailsPageAgeLabel";
+  static const String registerDetailsPageButton = "registerDetailsPageButton";
+
+  //Register Contact Page
+  static const String registerContactPageTitle = "registerContactPageTitle";
+  static const String registerContactPageEmailLabel = "registerContactPageEmailLabel";
+  static const String registerContactPagePhoneNumberLabel = "registerContactPagePhoneNumberLabel";
+  static const String registerContactPageButton = "registerContactPageButton";
+
+  //Register Job Page
+  static const String registerJobPageTitle = "registerJobPageTitle";
+  static const String registerJobPageJobLabel = "registerJobPageJobLabel";
+  static const String registerJobPageDialogTitle = "registerJobPageDialogTitle";
+  static const String registerJobPageButton = "registerJobPageButton";
+
+  //Register Password Page
+  static const String registerPasswordPageTitle = "registerPasswordPageTitle";
+  static const String registerPasswordPagePasswordLabel = "registerPasswordPagePasswordLabel";
+  static const String registerPasswordPageConfirmPasswordLabel = "registerPasswordPageConfirmPasswordLabel";
+  static const String registerPasswordPageButton = "registerPasswordPageButton";
 
   //Validation Messages
   static const String validationsFieldRequired = "validationsFieldRequired";
   static const String validationsArabicAndEnglishLetters = "validationsArabicAndEnglishLetters";
   static const String validationsNumbersOnly = "validationsNumbersOnly";
+  static const String validationsValidEmail = "validationsValidEmail";
+  static const String validationsNumbersMustEqual11Digit = "validationsNumbersMustEqual11Digit";
+  static const String validationsPasswordSpecifications = "validationsPasswordSpecifications";
+  static const String validationsEnterTheSamePassword = "validationsEnterTheSamePassword";
 }

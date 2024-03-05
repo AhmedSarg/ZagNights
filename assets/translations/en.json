@@ -21,9 +21,13 @@
   "sure": "Sure",
   "cancel": "Cancel",
 
-  "validationsFieldRequired": "Field is Required",
-  "validationsArabicAndEnglishLetters": "Use Letters Only",
-  "validationsNumbersOnly": "Enter Numbers Only",
+  "validationsFieldRequired": "this field is required",
+  "validationsArabicAndEnglishLetters": "use letters only",
+  "validationsNumbersOnly": "enter numbers only",
+  "validationsValidEmail": "enter a valid email",
+  "validationsNumbersMustEqual11Digit": "please enter 11 numbers",
+  "validationsPasswordSpecifications": "- must be more than or equal to 8 characters\n- must contain letters and numbers",
+  "validationsEnterTheSamePassword": "please enter the same password",
 
   "selectionScreenLoginButton": "Login",
   "selectionScreenRegisterButton": "Create Account",
@@ -32,14 +36,29 @@
   "loginScreenPasswordLabel": "Password",
   "loginScreenLoginButton": "Login",
 
-  "registerNameScreenTitle": "Enter Your\nName",
-  "registerNameScreenFirstNameLabel": "First Name",
-  "registerNameScreenLastNameLabel": "Last Name",
-  "registerNameScreenButton": "Next",
+  "registerNamePageTitle": "Enter Your\nName",
+  "registerNamePageFirstNameLabel": "First Name",
+  "registerNamePageLastNameLabel": "Last Name",
+  "registerNamePageButton": "Next",
 
-  "registerDetailsScreenTitle": "Details\nAbout You",
-  "registerDetailsScreenMale": "Male",
-  "registerDetailsScreenFemale": "Female",
-  "registerDetailsScreenAgeLabel": "Age",
-  "registerDetailsScreenButton": "Next"
+  "registerDetailsPageTitle": "Details\nAbout You",
+  "registerDetailsPageMale": "Male",
+  "registerDetailsPageFemale": "Female",
+  "registerDetailsPageAgeLabel": "Age",
+  "registerDetailsPageButton": "Next",
+
+  "registerContactPageTitle": "Contact\nDetails",
+  "registerContactPageEmailLabel": "Email",
+  "registerContactPagePhoneNumberLabel": "Phone Number",
+  "registerContactPageButton": "Next",
+
+  "registerJobPageTitle": "Choose your\nJob",
+  "registerJobPageJobLabel": "Job",
+  "registerJobPageDialogTitle": "Jobs",
+  "registerJobPageButton": "Next",
+
+  "registerPasswordPageTitle": "Create a\nPassword",
+  "registerPasswordPagePasswordLabel": "Password",
+  "registerPasswordPageConfirmPasswordLabel": "Confirm Password",
+  "registerPasswordPageButton": "Create Account"
 }

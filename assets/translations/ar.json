@@ -24,6 +24,10 @@
   "validationsFieldRequired": "هذا الحقل مطلوب",
   "validationsArabicAndEnglishLetters": "استعمل حروف فقط",
   "validationsNumbersOnly": "استعمل أرقام فقط",
+  "validationsValidEmail": "أدخل بريد ألكتروني صحيح",
+  "validationsNumbersMustEqual11Digit": "يرجي كتابة 11 رقما",
+  "validationsPasswordSpecifications": "- يجب أن يتكون من 8 احرف او اكتر\n- يجب أن يحتوي علي حروف و أرقام",
+  "validationsEnterTheSamePassword": "يرجي كتابة نفس كلمة المرور",
 
   "selectionScreenLoginButton": "تسجيل الدخول",
   "selectionScreenRegisterButton": "انشاء حساب",
@@ -32,14 +36,29 @@
   "loginScreenPasswordLabel": "كلمة السر",
   "loginScreenLoginButton": "تسجيل الدخول",
 
-  "registerNameScreenTitle": "أكتب\nأسمك",
-  "registerNameScreenFirstNameLabel": "الأسم الأول",
-  "registerNameScreenLastNameLabel": "الأسم الأخير",
-  "registerNameScreenButton": "التالي",
+  "registerNamePageTitle": "أكتب\nأسمك",
+  "registerNamePageFirstNameLabel": "الأسم الأول",
+  "registerNamePageLastNameLabel": "الأسم الأخير",
+  "registerNamePageButton": "التالي",
 
-  "registerDetailsScreenTitle": "معلومات\nعنك",
-  "registerDetailsScreenMale": "ذكر",
-  "registerDetailsScreenFemale": "أنثي",
-  "registerDetailsScreenAgeLabel": "السن",
-  "registerDetailsScreenButton": "التالي"
+  "registerDetailsPageTitle": "معلومات\nعنك",
+  "registerDetailsPageMale": "ذكر",
+  "registerDetailsPageFemale": "أنثي",
+  "registerDetailsPageAgeLabel": "السن",
+  "registerDetailsPageButton": "التالي",
+
+  "registerContactPageTitle": "معلومات\nالتواصل",
+  "registerContactPageEmailLabel": "البريد الألكتروني",
+  "registerContactPagePhoneNumberLabel": "رقم الهاتف",
+  "registerContactPageButton": "التالي",
+
+  "registerJobPageTitle": "اختار\nوظيفتك",
+  "registerJobPageJobLabel": "الوظيفة",
+  "registerJobPageDialogTitle": "الوظائف",
+  "registerJobPageButton": "التالي",
+
+  "registerPasswordPageTitle": "انشئ\nكلمة مرور",
+  "registerPasswordPagePasswordLabel": "كلمة المرور",
+  "registerPasswordPageConfirmPasswordLabel": "تأكيد كلمة المرور",
+  "registerPasswordPageButton": "أنشاء حساب"
 }

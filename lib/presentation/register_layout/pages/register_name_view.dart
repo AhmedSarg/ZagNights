@@ -2,6 +2,7 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
 import '../../common/validators/validators.dart';
+import '../../common/widget/app_button.dart';
 import '../../common/widget/main_text_field.dart';
 import '../../resources/strings_manager.dart';
 import '../../resources/text_styles.dart';
@@ -35,12 +36,12 @@ class RegisterNamePage extends StatelessWidget {
           children: [
             const Spacer(),
             Text(
-              AppStrings.registerNameScreenTitle.tr(),
-              style: AppTextStyles.registerNameScreenTitleTextStyle(context),
+              AppStrings.registerNamePageTitle.tr(),
+              style: AppTextStyles.registerPagesTitleTextStyle(context),
             ),
             const Spacer(),
             CustomTextField(
-              label: AppStrings.registerNameScreenFirstNameLabel.tr(),
+              label: AppStrings.registerNamePageFirstNameLabel.tr(),
               controller: viewModel.getFirstNameController,
               focusNode: firstNameFocusNode,
               nextFocus: lastNameFocusNode,
@@ -48,30 +49,22 @@ class RegisterNamePage extends StatelessWidget {
             ),
             const SizedBox(height: AppSize.s30),
             CustomTextField(
-              label: AppStrings.registerNameScreenLastNameLabel.tr(),
+              label: AppStrings.registerNamePageLastNameLabel.tr(),
               controller: viewModel.getLastNameController,
               focusNode: lastNameFocusNode,
               nextFocus: null,
               validator: AppValidators.validateName,
             ),
             const Spacer(),
-            SizedBox(
-              width: double.infinity,
-              height: AppSize.s50,
-              child: ElevatedButton(
-                onPressed: () {
-                  firstNameFocusNode.unfocus();
-                  lastNameFocusNode.unfocus();
-                  if (formKey.currentState!.validate()) {
-                    viewModel.nextPage();
-                  }
-                },
-                child: Text(
-                  AppStrings.registerNameScreenButton.tr(),
-                  style:
-                      AppTextStyles.registerNameScreenButtonTextStyle(context),
-                ),
-              ),
+            AppButton(
+              text: AppStrings.registerNamePageButton.tr(),
+              onPressed: () {
+                firstNameFocusNode.unfocus();
+                lastNameFocusNode.unfocus();
+                if (formKey.currentState!.validate()) {
+                  viewModel.nextPage();
+                }
+              },
             ),
             const Spacer(),
           ],

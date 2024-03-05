@@ -1,29 +1,27 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:zag_nights/presentation/common/widget/app_button.dart';
 
 import '../../common/validators/validators.dart';
+import '../../common/widget/app_button.dart';
 import '../../common/widget/main_text_field.dart';
 import '../../resources/strings_manager.dart';
 import '../../resources/text_styles.dart';
 import '../../resources/values_manager.dart';
 import '../viewmodel/register_layout_viewmodel.dart';
 
-class RegisterContactPage extends StatelessWidget {
-  const RegisterContactPage({
+class RegisterPasswordPage extends StatelessWidget {
+  const RegisterPasswordPage({
     super.key,
     required this.viewModel,
     required this.formKey,
-    required this.emailFocusNode,
-    required this.phoneNumberFocusNode,
+    required this.passwordFocusNode,
+    required this.confirmPasswordFocusNode,
   });
 
   final RegisterLayoutViewModel viewModel;
-
   final GlobalKey<FormState> formKey;
-
-  final FocusNode emailFocusNode;
-  final FocusNode phoneNumberFocusNode;
+  final FocusNode passwordFocusNode;
+  final FocusNode confirmPasswordFocusNode;
 
   @override
   Widget build(BuildContext context) {
@@ -32,40 +30,44 @@ class RegisterContactPage extends StatelessWidget {
       onPopInvoked: (popped) {
         viewModel.prevPage();
       },
-      child: Form(
-        key: formKey,
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: AppPadding.p30),
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: AppPadding.p30),
+        child: Form(
+          key: formKey,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               const Spacer(),
               Text(
-                AppStrings.registerContactPageTitle.tr(),
+                AppStrings.registerPasswordPageTitle.tr(),
                 style: AppTextStyles.registerPagesTitleTextStyle(context),
               ),
               const Spacer(),
               CustomTextField(
-                label: AppStrings.registerContactPageEmailLabel.tr(),
-                controller: viewModel.getEmailController,
-                focusNode: emailFocusNode,
-                nextFocus: phoneNumberFocusNode,
-                keyboardType: TextInputType.emailAddress,
-                validator: AppValidators.validateEmail,
+                label: AppStrings.registerPasswordPagePasswordLabel.tr(),
+                controller: viewModel.getPasswordController,
+                focusNode: passwordFocusNode,
+                nextFocus: confirmPasswordFocusNode,
+                obscureText: true,
+                validator: AppValidators.validatePassword,
               ),
               const SizedBox(height: AppSize.s30),
               CustomTextField(
-                label: AppStrings.registerContactPagePhoneNumberLabel.tr(),
-                controller: viewModel.getPhoneNumberController,
-                focusNode: phoneNumberFocusNode,
+                label: AppStrings.registerPasswordPageConfirmPasswordLabel.tr(),
+                controller: viewModel.getConfirmPasswordController,
+                focusNode: confirmPasswordFocusNode,
                 nextFocus: null,
-                keyboardType: TextInputType.number,
-                validator: AppValidators.validatePhoneNumber,
+                obscureText: true,
+                validator: (val) {
+                  return AppValidators.validateConfirmPassword(val, viewModel.getPasswordController.text);
+                },
               ),
               const Spacer(),
               AppButton(
-                text: AppStrings.registerContactPageButton.tr(),
+                text: AppStrings.registerPasswordPageButton.tr(),
                 onPressed: () {
+                  passwordFocusNode.unfocus();
+                  confirmPasswordFocusNode.unfocus();
                   if (formKey.currentState!.validate()) {
                     viewModel.nextPage();
                   }

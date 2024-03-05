@@ -89,7 +89,7 @@ class AppTextStyles {
 
   //Register Screen
 
-  static TextStyle registerNameScreenTitleTextStyle(BuildContext? context) =>
+  static TextStyle registerPagesTitleTextStyle(BuildContext? context) =>
       getBoldStyle(
         fontFamily: (context!.language == Languages.en)
             ? FontConstants.english
@@ -98,28 +98,22 @@ class AppTextStyles {
         fontSize: FontSize.f48,
       );
 
-  static TextStyle registerNameScreenButtonTextStyle(BuildContext? context) =>
-      getRegularStyle(
-        fontFamily: (context!.language == Languages.en)
-            ? FontConstants.english
-            : FontConstants.arabic,
-        color: ColorManager.white,
-        fontSize: FontSize.f20,
-      );
-
-  static TextStyle registerDetailsScreenTitleTextStyle(BuildContext? context) =>
-      getBoldStyle(
-        fontFamily: (context!.language == Languages.en)
-            ? FontConstants.english
-            : FontConstants.arabic,
-        color: ColorManager.tertiary,
-        fontSize: FontSize.f48,
-      );
-
-  static TextStyle registerDetailsScreenGenderTextStyle(BuildContext? context, Color color) =>
+  static TextStyle registerDetailsPageGenderTextStyle(BuildContext? context, Color color) =>
       getBoldStyle(
         color: color,
         fontSize: FontSize.f20,
+      );
+
+  static TextStyle registerJobsDialogTitleTextStyle(BuildContext? context) =>
+      getExtraBoldStyle(
+        color: ColorManager.tertiary,
+        fontSize: FontSize.f20,
+      );
+
+  static TextStyle registerJobsDialogItemTextStyle(BuildContext? context) =>
+      getMediumStyle(
+        color: ColorManager.tertiary,
+        fontSize: FontSize.f16,
       );
 
 }
