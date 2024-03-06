@@ -14,6 +14,7 @@
   "defaultError": "Error",
   "cacheError": "Cache Error",
   "noInternetError": "No Internet",
+  "emailAlreadyExists": "Account Already Exists",
   "emptyContent": "Empty Content",
   "intentError": "Empty Intent",
 
@@ -61,5 +62,8 @@
   "registerPasswordPagePasswordLabel": "Password",
   "registerPasswordPageConfirmPasswordLabel": "Confirm Password",
   "registerPasswordPageButton": "Create Account",
-  "soonScreenTitle": "Soon"
+
+  "registerLayoutSuccessMessage": "Registered Successfully",
+
+  "soonScreenTitle": "Coming Soon"
 }

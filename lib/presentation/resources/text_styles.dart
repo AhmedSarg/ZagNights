@@ -13,14 +13,18 @@ class AppTextStyles {
 
   static TextStyle baseStatesMessageTextStyle(BuildContext? context) =>
       getBoldStyle(
-        fontFamily: FontConstants.english,
-        color: ColorManager.primary,
-        fontSize: FontSize.f16,
+        fontFamily: (context!.language == Languages.en)
+            ? FontConstants.english
+            : FontConstants.arabic,
+        color: ColorManager.tertiary,
+        fontSize: FontSize.f20,
       );
 
   static TextStyle baseStatesElevatedBtnTextStyle(BuildContext? context) =>
       getBoldStyle(
-        fontFamily: FontConstants.english,
+        fontFamily: (context!.language == Languages.en)
+          ? FontConstants.english
+          : FontConstants.arabic,
         color: ColorManager.white,
         fontSize: FontSize.f14,
       );

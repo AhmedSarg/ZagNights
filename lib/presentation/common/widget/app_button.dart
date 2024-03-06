@@ -10,11 +10,13 @@ class AppButton extends StatelessWidget {
     required this.text,
     required this.onPressed,
     this.outlined = false,
+    this.textStyle,
   });
 
   final String text;
   final Function() onPressed;
   final bool outlined;
+  final TextStyle? textStyle;
 
   @override
   Widget build(BuildContext context) {
@@ -35,7 +37,7 @@ class AppButton extends StatelessWidget {
               ),
         child: Text(
           text,
-          style: AppTextStyles.appButtonTextStyle(context),
+          style: textStyle ?? AppTextStyles.appButtonTextStyle(context),
         ),
       ),
     );

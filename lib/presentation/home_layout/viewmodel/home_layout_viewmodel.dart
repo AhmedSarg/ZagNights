@@ -18,20 +18,28 @@ class HomeLayoutViewModel extends BaseCubit
 
   void _loadData() {
     emit(LoadingState());
-    _appStatusUseCase(null).then((value) {
-      value.fold(
-        (l) => ErrorState(failure: l),
-        (r) {
-          _appStatus = r;
-          if (_appStatus) {
-            emit(ContentState());
-          }
-          else {
-            emit(SoonState());
-          }
-        },
-      );
-    });
+    _appStatusUseCase(null).then(
+      (value) {
+        value.fold(
+          (l) {
+            emit(ErrorState(
+              failure: l,
+              retry: () {
+                start();
+              },
+            ));
+          },
+          (r) {
+            _appStatus = r;
+            if (_appStatus) {
+              emit(ContentState());
+            } else {
+              emit(SoonState());
+            }
+          },
+        );
+      },
+    );
   }
 
   @override

@@ -1,7 +1,5 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:zag_nights/presentation/resources/color_manager.dart';
-import 'package:zag_nights/presentation/resources/values_manager.dart';
 
 import '../resources/assets_manager.dart';
 import '../resources/strings_manager.dart';
@@ -26,13 +24,16 @@ Widget baseBuilder(BuildContext context, BaseStates state, Widget content) {
     );
   } else if (state is ErrorState) {
     return BaseWidgets.buildItemsColumn([
-      // BaseWidgets.buildAnimatedImage(LottieAssets.error),
+      const Spacer(),
+      BaseWidgets.buildAnimatedImage(LottieAssets.error),
       BaseWidgets.buildMessage(context, state.failure.message),
+      const Spacer(),
       BaseWidgets.buildButton(
-          displayType: state.displayType,
-          context: context,
-          onTap: state.retry,
-          title: AppStrings.retryAgain.tr()),
+        displayType: state.displayType,
+        context: context,
+        onTap: state.retry,
+        title: AppStrings.retryAgain.tr(),
+      ),
     ]);
   } else if (state is ContentState) {
     //do nothing

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
+import 'package:zag_nights/presentation/common/widget/app_button.dart';
+import 'package:zag_nights/presentation/resources/color_manager.dart';
 import '../resources/text_styles.dart';
 import '../resources/values_manager.dart';
 import 'base_states.dart';
@@ -47,6 +49,7 @@ class BaseWidgets {
         builder: (context) => AlertDialog(
               actions: actions,
               actionsAlignment: MainAxisAlignment.spaceEvenly,
+              backgroundColor: ColorManager.secondary,
               content: Padding(
                 padding: const EdgeInsets.all(AppPadding.p20),
                 child: SingleChildScrollView(
@@ -65,9 +68,11 @@ class BaseWidgets {
     return Center(
       child: Padding(
         padding: const EdgeInsets.all(AppPadding.p8),
-        child: Text(
-          message,
-          style: AppTextStyles.baseStatesMessageTextStyle(context),
+        child: FittedBox(
+          child: Text(
+            message,
+            style: AppTextStyles.baseStatesMessageTextStyle(context),
+          ),
         ),
       ),
     );
@@ -82,21 +87,17 @@ class BaseWidgets {
 
     return Center(
       child: Padding(
-        padding: const EdgeInsets.all(AppPadding.p8),
-        child: SizedBox(
-            width: double.infinity,
-            child: ElevatedButton(
-                style: ElevatedButton.styleFrom(padding: EdgeInsets.zero),
-                onPressed: () {
-                  if (displayType == DisplayType.popUpDialog) {
-                    Navigator.of(context).pop();
-                  }
-                  onTap();
-                },
-                child: Text(
-                  title,
-                  style: AppTextStyles.baseStatesElevatedBtnTextStyle(context),
-                ))),
+        padding: const EdgeInsets.all(AppPadding.p40),
+        child: AppButton(
+          onPressed: () {
+            if (displayType == DisplayType.popUpDialog) {
+              Navigator.of(context).pop();
+            }
+            onTap();
+          },
+          text: title,
+          textStyle: AppTextStyles.baseStatesElevatedBtnTextStyle(context),
+        ),
       ),
     );
   }

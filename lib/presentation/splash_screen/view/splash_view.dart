@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../app/sl.dart';
 import '../../base/base_states.dart';
 import '../../base/cubit_builder.dart';
 import '../../base/cubit_listener.dart';
@@ -17,11 +18,13 @@ class SplashScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider<SplashViewModel>(
-      create: (_) => SplashViewModel(context)..start(),
+      create: (_) => SplashViewModel(context, sl())..start(),
       child: BlocConsumer<SplashViewModel, BaseStates>(
         listener: (context, state) {
-          if (state is SplashNavigateState) {
+          if (state is UserNotSignedState) {
             Navigator.pushReplacementNamed(context, Routes.selectionRoute);
+          } else if (state is UserSignedState) {
+            Navigator.pushReplacementNamed(context, Routes.homeRoute);
           } else {
             baseListener(context, state);
           }

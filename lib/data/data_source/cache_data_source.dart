@@ -1,3 +1,5 @@
+import 'package:firebase_auth/firebase_auth.dart';
+
 import '../../app/date_ntp.dart';
 import '../network/app_prefs.dart';
 
@@ -6,14 +8,23 @@ import '../network/app_prefs.dart';
 abstract class CacheDataSource {
 
   // Future<bool> getOnBoardingFirstTime();
+  User? getSignedUser();
 
 }
 
 class CacheDataSourceImpl implements CacheDataSource {
-  final AppPrefs _preferences;
-  final DateNTP _dateNTP;
+  // final AppPrefs _preferences;
+  // final DateNTP _dateNTP;
+  final FirebaseAuth _firebaseAuth;
 
-  CacheDataSourceImpl(this._preferences, this._dateNTP);
+  CacheDataSourceImpl(/*this._preferences, this._dateNTP, */this._firebaseAuth);
+
+  @override
+  User? getSignedUser() {
+    return _firebaseAuth.currentUser;
+  }
+
+
 
   // @override
   // Future<void> setOnBoardingFirstTime() async {

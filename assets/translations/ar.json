@@ -14,6 +14,7 @@
   "defaultError": "خطأ",
   "cacheError": "خطأ في التخزين",
   "noInternetError": "لا يوجد أنترنت",
+  "emailAlreadyExists": "هذا الحساب مسجل بالفعل",
   "emptyContent": "لا يوجد محتوي",
   "intentError": "لا يوجد محتوي",
 
@@ -61,5 +62,8 @@
   "registerPasswordPagePasswordLabel": "كلمة المرور",
   "registerPasswordPageConfirmPasswordLabel": "تأكيد كلمة المرور",
   "registerPasswordPageButton": "أنشاء حساب",
+
+  "registerLayoutSuccessMessage": "تم التسجيل بنجاح",
+
   "soonScreenTitle": "انتظرونا قريباً"
 }

@@ -24,12 +24,14 @@ class RouteGenerator {
   static Route<dynamic> getRoute(RouteSettings settings) {
     switch (settings.name) {
       case Routes.splashRoute:
+        initSplashScreen();
         return MaterialPageRoute(builder: (_) => const SplashScreen());
       case Routes.selectionRoute:
         return MaterialPageRoute(builder: (_) => const SelectionScreen());
       case Routes.loginRoute:
         return MaterialPageRoute(builder: (_) => const LoginScreen());
       case Routes.registerRoute:
+        initRegisterScreen();
         return MaterialPageRoute(builder: (_) => const RegisterLayoutScreen());
       case Routes.homeRoute:
         initHomeScreen();

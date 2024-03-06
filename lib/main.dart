@@ -1,10 +1,8 @@
 import 'package:bloc/bloc.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/foundation.dart';
 import 'app/app.dart';
 import 'app/sl.dart';
-import 'main_test.dart';
 import 'presentation/base/bloc_observer.dart';
 import 'presentation/resources/langauge_manager.dart';
 
@@ -16,14 +14,18 @@ void main() async {
   Bloc.observer = MyBlocObserver();
 
   // await (await SharedPreferences.getInstance()).clear();
+  // await Firebase.initializeApp(
+  //   options: DefaultFirebaseOptions.currentPlatform,
+  // );
+  // FirebaseAuth? fba = FirebaseAuth.instance;
+  // User? user = fba.currentUser;
+  // if (user != null) {
+  //   print(user.email);
+  // }else {
+  //   print('null user');
+  // }
 
   await initAppModule();
-
-  //TODO: remove on release
-  //Created by youssef samy
-  if (kDebugMode) {
-    test();
-  }
 
   runApp(
     EasyLocalization(

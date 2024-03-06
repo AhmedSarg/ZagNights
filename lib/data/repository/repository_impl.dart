@@ -1,6 +1,8 @@
 import 'package:dartz/dartz.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 import '../../domain/repository/repository.dart';
+import '../data_source/cache_data_source.dart';
 import '../data_source/remote_data_source.dart';
 import '../network/error_handler.dart';
 import '../network/failure.dart';
@@ -8,9 +10,11 @@ import '../network/network_info.dart';
 
 class RepositoryImpl implements Repository {
   final RemoteDataSource _remoteDataSource;
+
   // final LocalDataSource _localDataSource;
-  // final CacheDataSource _cacheDataSource;
+  final CacheDataSource _cacheDataSource;
   final NetworkInfo _networkInfo;
+
   // final GSheetFactory _gSheetFactory;
   // final DateNTP _dateNTP;
 
@@ -18,7 +22,7 @@ class RepositoryImpl implements Repository {
     this._remoteDataSource,
     // this._localDataSource,
     this._networkInfo,
-    // this._cacheDataSource,
+    this._cacheDataSource,
     // this._gSheetFactory,
     // this._dateNTP,
   );
@@ -29,8 +33,7 @@ class RepositoryImpl implements Repository {
       if (await _networkInfo.isConnected) {
         var data = await _remoteDataSource.getAppStatus();
         return Right(data);
-      }
-      else {
+      } else {
         return Left(DataSource.NO_INTERNET_CONNECTION.getFailure());
       }
     } catch (e) {
@@ -38,27 +41,75 @@ class RepositoryImpl implements Repository {
     }
   }
 
-  // @override
-  // Future<Either<Failure, NewsListModel>> getNewsList() async {
-  //   try {
-  //     // if (kDebugMode) await Future.delayed(const Duration(seconds: 0));
-  //     // var data = await _localDataSource.getNewsData();
-  //
-  //     if (await _networkInfo.isConnected) {
-  //       var response = await _remoteDataSource.getNews();
-  //       await _cacheDataSource.setNewsList(response);
-  //       return Right(await response.toDomain());
-  //     } else {
-  //       try {
-  //         var response = await _cacheDataSource.getNewsList();
-  //         return Right(await response.toDomain());
-  //       } catch (e) {
-  //         return Left(DataSource.NO_INTERNET_CONNECTION.getFailure());
-  //       }
-  //     }
-  //   } catch (e) {
-  //     return Left(ErrorHandler.handle(e).failure);
-  //   }
-  // }
+  @override
+  Future<Either<Failure, void>> register({
+    required String firstName,
+    required String lastName,
+    required String gender,
+    required int age,
+    required String email,
+    required String phoneNumber,
+    required String job,
+    required String password,
+  }) async {
+    try {
+      if (await _networkInfo.isConnected) {
+        if (!(await _remoteDataSource.isUserInDataBase(email))) {
+          void response;
+          await _remoteDataSource.registerToDataBase(
+            firstName: firstName,
+            lastName: lastName,
+            gender: gender,
+            age: age,
+            email: email,
+            phoneNumber: phoneNumber,
+            job: job,
+            createdAt: DateTime.now(),
+          );
+          await _remoteDataSource.registerToAuth(
+              email: email, password: password);
+          return Right(response);
+        } else {
+          return Left(DataSource.EMAIL_ALREADY_EXISTS.getFailure());
+        }
+      } else {
+        return Left(DataSource.NO_INTERNET_CONNECTION.getFailure());
+      }
+    } catch (e) {
+      return Left(ErrorHandler.handle(e).failure);
+    }
+  }
 
+  @override
+  Future<Either<Failure, User?>> getSignedUser() async {
+    try {
+      User? data = _cacheDataSource.getSignedUser();
+      return Right(data);
+    } catch (e) {
+      return Left(ErrorHandler.handle(e).failure);
+    }
+  }
+
+// @override
+// Future<Either<Failure, NewsListModel>> getNewsList() async {
+//   try {
+//     // if (kDebugMode) await Future.delayed(const Duration(seconds: 0));
+//     // var data = await _localDataSource.getNewsData();
+//
+//     if (await _networkInfo.isConnected) {
+//       var response = await _remoteDataSource.getNews();
+//       await _cacheDataSource.setNewsList(response);
+//       return Right(await response.toDomain());
+//     } else {
+//       try {
+//         var response = await _cacheDataSource.getNewsList();
+//         return Right(await response.toDomain());
+//       } catch (e) {
+//         return Left(DataSource.NO_INTERNET_CONNECTION.getFailure());
+//       }
+//     }
+//   } catch (e) {
+//     return Left(ErrorHandler.handle(e).failure);
+//   }
+// }
 }

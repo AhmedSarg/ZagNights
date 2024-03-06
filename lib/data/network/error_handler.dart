@@ -25,6 +25,7 @@ enum DataSource {
   SEND_TIMEOUT,
   CACHE_ERROR,
   NO_INTERNET_CONNECTION,
+  EMAIL_ALREADY_EXISTS,
   DEFAULT
 }
 
@@ -44,6 +45,7 @@ class ResponseCode {
   static const int SEND_TIMEOUT = -4;
   static const int CACHE_ERROR = -5;
   static const int NO_INTERNET_CONNECTION = -6;
+  static const int EMAIL_ALREADY_EXISTS = -7;
   static const int DEFAULT = -10;
 }
 
@@ -69,6 +71,7 @@ class ResponseMessage {
   static const String SEND_TIMEOUT = AppStrings.timeoutError;
   static const String CACHE_ERROR = AppStrings.cacheError;
   static const String NO_INTERNET_CONNECTION = AppStrings.noInternetError;
+  static const String EMAIL_ALREADY_EXISTS = AppStrings.emailAlreadyExists;
 
   static const String DEFAULT = AppStrings.defaultError;
 }
@@ -106,6 +109,9 @@ extension DataSourceExtension on DataSource {
       case DataSource.NO_INTERNET_CONNECTION:
         return Failure(ResponseCode.NO_INTERNET_CONNECTION,
             ResponseMessage.NO_INTERNET_CONNECTION.tr());
+      case DataSource.EMAIL_ALREADY_EXISTS:
+        return Failure(ResponseCode.EMAIL_ALREADY_EXISTS,
+            ResponseMessage.EMAIL_ALREADY_EXISTS.tr());
       case DataSource.DEFAULT:
         return Failure(ResponseCode.DEFAULT, ResponseMessage.DEFAULT.tr());
     }

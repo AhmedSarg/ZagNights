@@ -1,10 +1,13 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dio/dio.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:get_it/get_it.dart';
 import 'package:internet_connection_checker_plus/internet_connection_checker_plus.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:zag_nights/data/network/firebase_factory.dart';
+import 'package:zag_nights/data/network/fireauth_factory.dart';
 import 'package:zag_nights/domain/usecase/app_status_usecase.dart';
+import 'package:zag_nights/domain/usecase/get_signed_user_usecase.dart';
+import 'package:zag_nights/domain/usecase/register_usecase.dart';
 
 import '../data/data_source/cache_data_source.dart';
 import '../data/data_source/local_data_source.dart';
@@ -14,6 +17,7 @@ import '../data/network/app_api.dart';
 import '../data/network/app_prefs.dart';
 import '../data/network/assets_loader.dart';
 import '../data/network/dio_factory.dart';
+import '../data/network/firestore_factory.dart';
 import '../data/network/network_info.dart';
 import '../data/repository/repository_impl.dart';
 import '../domain/repository/repository.dart';
@@ -36,21 +40,35 @@ Future<void> initAppModule() async {
   sl.registerLazySingleton<Dio>(() => dio);
   var firestore = await FirestoreFactoryImpl().create();
   sl.registerLazySingleton<FirebaseFirestore>(() => firestore);
+  var fireauth = await FireAuthFactoryImpl().create();
+  sl.registerLazySingleton<FirebaseAuth>(() => fireauth);
   sl.registerLazySingleton<AppServiceClient>(() => AppServiceClientImpl(sl()));
-  sl.registerLazySingleton<RemoteDataSource>(() => RemoteDataSourceImpl(sl()));
+  sl.registerLazySingleton<RemoteDataSource>(() => RemoteDataSourceImpl(sl(), sl()));
   sl.registerLazySingleton<RuntimeDataSource>(() => RuntimeDataSourceImpl());
   sl.registerLazySingleton<CacheDataSource>(
-    () => CacheDataSourceImpl(sl(), sl()),
+    () => CacheDataSourceImpl(sl()),
   );
 
   sl.registerLazySingleton<LocalDataSource>(() => LocalDataSourceImpl(sl()));
 
   sl.registerLazySingleton<Repository>(
-      () => RepositoryImpl(sl(), sl()));
+      () => RepositoryImpl(sl(), sl(), sl()));
 }
 
 void initHomeScreen() {
   if (GetIt.instance.isRegistered<AppStatusUseCase>() == false) {
     sl.registerFactory<AppStatusUseCase>(() => AppStatusUseCase(sl()));
+  }
+}
+
+void initRegisterScreen() {
+  if (GetIt.instance.isRegistered<RegisterUseCase>() == false) {
+    sl.registerFactory<RegisterUseCase>(() => RegisterUseCase(sl()));
+  }
+}
+
+void initSplashScreen() {
+  if (GetIt.instance.isRegistered<GetSignedUserUseCase>() == false) {
+    sl.registerFactory<GetSignedUserUseCase>(() => GetSignedUserUseCase(sl()));
   }
 }

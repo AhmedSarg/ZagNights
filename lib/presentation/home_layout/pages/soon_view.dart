@@ -1,5 +1,7 @@
 import 'package:easy_localization/easy_localization.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 
 import '../../resources/assets_manager.dart';
 import '../../resources/color_manager.dart';
@@ -31,7 +33,7 @@ class SoonScreen extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     Image.asset(ImageAssets.logoLight),
-                    const SizedBox(height: AppSize.s30),
+                    const SizedBox(height: AppSize.s10),
                     Text(
                       AppStrings.soonScreenTitle.tr(),
                       style: AppTextStyles.soonScreenTitleTextStyle(context),

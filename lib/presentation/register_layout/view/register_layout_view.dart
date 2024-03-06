@@ -1,18 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:zag_nights/presentation/register_layout/pages/register_contact_view.dart';
-import 'package:zag_nights/presentation/register_layout/pages/register_job_view.dart';
-import 'package:zag_nights/presentation/register_layout/pages/register_password_view.dart';
+import 'package:zag_nights/presentation/resources/routes_manager.dart';
 
+import '../../../app/sl.dart';
 import '../../base/base_states.dart';
 import '../../base/cubit_builder.dart';
 import '../../base/cubit_listener.dart';
 import '../../resources/assets_manager.dart';
 import '../../resources/color_manager.dart';
 import '../../resources/values_manager.dart';
+import '../pages/register_contact_view.dart';
 import '../pages/register_details_view.dart';
+import '../pages/register_job_view.dart';
 import '../pages/register_name_view.dart';
 import '../pages/register_no_route_view.dart';
+import '../pages/register_password_view.dart';
 import '../viewmodel/register_layout_viewmodel.dart';
 
 class RegisterLayoutScreen extends StatelessWidget {
@@ -32,9 +34,17 @@ class RegisterLayoutScreen extends StatelessWidget {
           ),
           SafeArea(
             child: BlocProvider(
-              create: (_) => RegisterLayoutViewModel()..start(),
+              create: (_) => RegisterLayoutViewModel(sl())..start(),
               child: BlocConsumer<RegisterLayoutViewModel, BaseStates>(
-                listener: (context, state) => baseListener(context, state),
+                listener: (context, state) {
+                  if (state is SuccessState) {
+                    Navigator.pushNamed(context, Routes.homeRoute);
+                  }
+                  else if (state is ErrorState) {
+                    Navigator.pop(context);
+                  }
+                  baseListener(context, state);
+                },
                 builder: (context, state) {
                   return baseBuilder(
                     context,
