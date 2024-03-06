@@ -1,6 +1,5 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:lottie/lottie.dart';
 
 import '../../resources/assets_manager.dart';
 import '../../resources/color_manager.dart';
@@ -23,19 +22,24 @@ class SoonScreen extends StatelessWidget {
             height: AppSize.infinity,
             width: AppSize.infinity,
           ),
-          Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: [
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: AppPadding.p60),
-                child: Text(
-                  AppStrings.soonScreenTitle.tr(),
-                  style: AppTextStyles.soonScreenTitleTextStyle(context),
+          SafeArea(
+            child: Center(
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: AppPadding.p80),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Image.asset(ImageAssets.logoLight),
+                    const SizedBox(height: AppSize.s30),
+                    Text(
+                      AppStrings.soonScreenTitle.tr(),
+                      style: AppTextStyles.soonScreenTitleTextStyle(context),
+                    ),
+                  ],
                 ),
               ),
-              Lottie.asset(LottieAssets.comingSoonEn),
-            ],
+            ),
           ),
         ],
       ),

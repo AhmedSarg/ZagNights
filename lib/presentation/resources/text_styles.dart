@@ -132,7 +132,7 @@ class AppTextStyles {
             ? FontConstants.english
             : FontConstants.arabic,
         color: ColorManager.tertiary,
-        fontSize: FontSize.f64,
+        fontSize: FontSize.f32,
       );
 
 }
