@@ -1,2 +1,3 @@
 - add account to cache storing
 - add networking
+- add app icon
