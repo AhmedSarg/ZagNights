@@ -60,5 +60,6 @@
   "registerPasswordPageTitle": "Create a\nPassword",
   "registerPasswordPagePasswordLabel": "Password",
   "registerPasswordPageConfirmPasswordLabel": "Confirm Password",
-  "registerPasswordPageButton": "Create Account"
+  "registerPasswordPageButton": "Create Account",
+  "soonScreenTitle": "Soon"
 }

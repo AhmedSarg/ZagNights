@@ -64,6 +64,9 @@ class AppStrings {
   static const String registerPasswordPageConfirmPasswordLabel = "registerPasswordPageConfirmPasswordLabel";
   static const String registerPasswordPageButton = "registerPasswordPageButton";
 
+  //Soon Screen
+  static const String soonScreenTitle = "soonScreenTitle";
+
   //Validation Messages
   static const String validationsFieldRequired = "validationsFieldRequired";
   static const String validationsArabicAndEnglishLetters = "validationsArabicAndEnglishLetters";

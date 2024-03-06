@@ -100,20 +100,39 @@ class AppTextStyles {
 
   static TextStyle registerDetailsPageGenderTextStyle(BuildContext? context, Color color) =>
       getBoldStyle(
+        fontFamily: (context!.language == Languages.en)
+            ? FontConstants.english
+            : FontConstants.arabic,
         color: color,
         fontSize: FontSize.f20,
       );
 
   static TextStyle registerJobsDialogTitleTextStyle(BuildContext? context) =>
       getExtraBoldStyle(
+        fontFamily: (context!.language == Languages.en)
+            ? FontConstants.english
+            : FontConstants.arabic,
         color: ColorManager.tertiary,
         fontSize: FontSize.f20,
       );
 
   static TextStyle registerJobsDialogItemTextStyle(BuildContext? context) =>
       getMediumStyle(
+        fontFamily: (context!.language == Languages.en)
+            ? FontConstants.english
+            : FontConstants.arabic,
         color: ColorManager.tertiary,
         fontSize: FontSize.f16,
+      );
+
+  //Soon Screen
+  static TextStyle soonScreenTitleTextStyle(BuildContext? context) =>
+      getBoldStyle(
+        fontFamily: (context!.language == Languages.en)
+            ? FontConstants.english
+            : FontConstants.arabic,
+        color: ColorManager.tertiary,
+        fontSize: FontSize.f64,
       );
 
 }

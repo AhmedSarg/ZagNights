@@ -60,5 +60,6 @@
   "registerPasswordPageTitle": "انشئ\nكلمة مرور",
   "registerPasswordPagePasswordLabel": "كلمة المرور",
   "registerPasswordPageConfirmPasswordLabel": "تأكيد كلمة المرور",
-  "registerPasswordPageButton": "أنشاء حساب"
+  "registerPasswordPageButton": "أنشاء حساب",
+  "soonScreenTitle": "قريباً"
 }

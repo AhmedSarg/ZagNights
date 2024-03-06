@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "712750490544",
+    "project_id": "zag-nights",
+    "storage_bucket": "zag-nights.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:712750490544:android:57e6e3fba0faa16964ac75",
+        "android_client_info": {
+          "package_name": "com.example.zag_nights"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCCIerzMZHoU49xoy_ba2o8MyNNxzlYZZM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

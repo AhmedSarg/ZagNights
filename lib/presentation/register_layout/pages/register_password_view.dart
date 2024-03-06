@@ -1,5 +1,6 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:zag_nights/presentation/resources/routes_manager.dart';
 
 import '../../common/validators/validators.dart';
 import '../../common/widget/app_button.dart';
@@ -69,7 +70,7 @@ class RegisterPasswordPage extends StatelessWidget {
                   passwordFocusNode.unfocus();
                   confirmPasswordFocusNode.unfocus();
                   if (formKey.currentState!.validate()) {
-                    viewModel.nextPage();
+                    Navigator.pushNamed(context, Routes.homeRoute);
                   }
                 },
               ),

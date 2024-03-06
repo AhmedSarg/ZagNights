@@ -36,7 +36,8 @@ class SelectionScreen extends StatelessWidget {
                   AppButton(
                     text: AppStrings.selectionScreenLoginButton.tr(),
                     onPressed: () {
-                      Navigator.pushNamed(context, Routes.loginRoute);
+                      // Navigator.pushNamed(context, Routes.loginRoute);
+                      Navigator.pushNamed(context, Routes.homeRoute);
                     },
                   ),
                   const SizedBox(height: AppSize.s20),

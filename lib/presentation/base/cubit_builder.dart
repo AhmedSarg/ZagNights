@@ -1,5 +1,7 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:zag_nights/presentation/resources/color_manager.dart';
+import 'package:zag_nights/presentation/resources/values_manager.dart';
 
 import '../resources/assets_manager.dart';
 import '../resources/strings_manager.dart';
@@ -16,9 +18,12 @@ Widget baseBuilder(BuildContext context, BaseStates state, Widget content) {
     //do nothing
     return content;
   } else if (state is LoadingState) {
-    return BaseWidgets.buildItemsColumn([
-      // BaseWidgets.buildAnimatedImage(LottieAssets.loading),
-    ]);
+    // return BaseWidgets.buildItemsColumn([
+    //   BaseWidgets.buildAnimatedImage(LottieAssets.loading),
+    // ]);
+    return Center(
+      child: BaseWidgets.buildAnimatedImage(LottieAssets.loading),
+    );
   } else if (state is ErrorState) {
     return BaseWidgets.buildItemsColumn([
       // BaseWidgets.buildAnimatedImage(LottieAssets.error),
