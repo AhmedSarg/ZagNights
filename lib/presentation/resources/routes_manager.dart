@@ -29,6 +29,7 @@ class RouteGenerator {
       case Routes.selectionRoute:
         return MaterialPageRoute(builder: (_) => const SelectionScreen());
       case Routes.loginRoute:
+        initLoginScreen();
         return MaterialPageRoute(builder: (_) => const LoginScreen());
       case Routes.registerRoute:
         initRegisterScreen();

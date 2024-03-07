@@ -15,6 +15,7 @@
   "cacheError": "Cache Error",
   "noInternetError": "No Internet",
   "emailAlreadyExists": "Account Already Exists",
+  "loginFailed": "Incorrect Email or Password",
   "emptyContent": "Empty Content",
   "intentError": "Empty Intent",
 
@@ -36,6 +37,7 @@
   "loginScreenEmailLabel": "Email",
   "loginScreenPasswordLabel": "Password",
   "loginScreenLoginButton": "Login",
+  "loginScreenSuccessMessage": "Login Successfully",
 
   "registerNamePageTitle": "Enter Your\nName",
   "registerNamePageFirstNameLabel": "First Name",

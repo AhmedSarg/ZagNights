@@ -1,8 +1,11 @@
 import 'package:bloc/bloc.dart';
 import 'package:easy_localization/easy_localization.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/cupertino.dart';
 import 'app/app.dart';
 import 'app/sl.dart';
+import 'firebase_options.dart';
 import 'presentation/base/bloc_observer.dart';
 import 'presentation/resources/langauge_manager.dart';
 
@@ -18,6 +21,7 @@ void main() async {
   //   options: DefaultFirebaseOptions.currentPlatform,
   // );
   // FirebaseAuth? fba = FirebaseAuth.instance;
+  // await fba.signOut();
   // User? user = fba.currentUser;
   // if (user != null) {
   //   print(user.email);

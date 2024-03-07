@@ -7,6 +7,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:zag_nights/data/network/fireauth_factory.dart';
 import 'package:zag_nights/domain/usecase/app_status_usecase.dart';
 import 'package:zag_nights/domain/usecase/get_signed_user_usecase.dart';
+import 'package:zag_nights/domain/usecase/login_usecase.dart';
 import 'package:zag_nights/domain/usecase/register_usecase.dart';
 
 import '../data/data_source/cache_data_source.dart';
@@ -64,6 +65,12 @@ void initHomeScreen() {
 void initRegisterScreen() {
   if (GetIt.instance.isRegistered<RegisterUseCase>() == false) {
     sl.registerFactory<RegisterUseCase>(() => RegisterUseCase(sl()));
+  }
+}
+
+void initLoginScreen() {
+  if (GetIt.instance.isRegistered<LoginUseCase>() == false) {
+    sl.registerFactory<LoginUseCase>(() => LoginUseCase(sl()));
   }
 }
 

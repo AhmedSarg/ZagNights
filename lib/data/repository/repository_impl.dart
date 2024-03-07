@@ -54,26 +54,29 @@ class RepositoryImpl implements Repository {
   }) async {
     try {
       if (await _networkInfo.isConnected) {
-        if (!(await _remoteDataSource.isUserInDataBase(email))) {
-          void response;
-          await _remoteDataSource.registerToDataBase(
-            firstName: firstName,
-            lastName: lastName,
-            gender: gender,
-            age: age,
-            email: email,
-            phoneNumber: phoneNumber,
-            job: job,
-            createdAt: DateTime.now(),
-          );
-          await _remoteDataSource.registerToAuth(
-              email: email, password: password);
-          return Right(response);
-        } else {
-          return Left(DataSource.EMAIL_ALREADY_EXISTS.getFailure());
-        }
+        void response;
+        await _remoteDataSource.registerToAuth(
+            email: email, password: password);
+        await _remoteDataSource.registerToDataBase(
+          firstName: firstName,
+          lastName: lastName,
+          gender: gender,
+          age: age,
+          email: email,
+          phoneNumber: phoneNumber,
+          job: job,
+          createdAt: DateTime.now(),
+        );
+        return Right(response);
       } else {
         return Left(DataSource.NO_INTERNET_CONNECTION.getFailure());
+      }
+    } on FirebaseAuthException catch (e){
+      if (e.code == 'email-already-in-use') {
+        return Left(DataSource.EMAIL_ALREADY_EXISTS.getFailure());
+      }
+      else {
+        return Left(ErrorHandler.handle(e).failure);
       }
     } catch (e) {
       return Left(ErrorHandler.handle(e).failure);
@@ -85,6 +88,29 @@ class RepositoryImpl implements Repository {
     try {
       User? data = _cacheDataSource.getSignedUser();
       return Right(data);
+    } catch (e) {
+      return Left(ErrorHandler.handle(e).failure);
+    }
+  }
+
+  @override
+  Future<Either<Failure, void>> login({
+    required String email,
+    required String password,
+  }) async {
+    try {
+      if (await _networkInfo.isConnected) {
+        void response;
+        await _remoteDataSource.login(
+          email: email,
+          password: password,
+        );
+        return Right(response);
+      } else {
+        return Left(DataSource.NO_INTERNET_CONNECTION.getFailure());
+      }
+    } on FirebaseAuthException {
+      return Left(DataSource.LOGIN_FAILED.getFailure());
     } catch (e) {
       return Left(ErrorHandler.handle(e).failure);
     }

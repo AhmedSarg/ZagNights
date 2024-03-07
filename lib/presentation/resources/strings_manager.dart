@@ -18,6 +18,7 @@ class AppStrings {
   static const String cacheError = "cacheError";
   static const String noInternetError = "noInternetError";
   static const String emailAlreadyExists = "emailAlreadyExists";
+  static const String loginFailed = "loginFailed";
 
   static const String emptyContent = "emptyContent";
   static const String intentError = "intentError";
@@ -33,6 +34,7 @@ class AppStrings {
   static const String loginScreenEmailLabel = "loginScreenEmailLabel";
   static const String loginScreenPasswordLabel = "loginScreenPasswordLabel";
   static const String loginScreenLoginButton = "loginScreenLoginButton";
+  static const String loginScreenSuccessMessage = "loginScreenSuccessMessage";
 
   //Register Name Page
   static const String registerNamePageTitle = "registerNamePageTitle";

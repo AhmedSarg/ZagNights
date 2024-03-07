@@ -17,4 +17,10 @@ abstract class Repository {
   });
 
   Future<Either<Failure, User?>> getSignedUser();
+
+  Future<Either<Failure, void>> login({
+    required String email,
+    required String password,
+  });
+
 }

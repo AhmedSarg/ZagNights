@@ -20,7 +20,12 @@ abstract class RemoteDataSource {
     required String password,
   });
 
-  Future<bool> isUserInDataBase(String email);
+  // Future<bool> isUserInDataBase(String email);
+
+  Future<void> login({
+    required String email,
+    required String password,
+  });
 }
 
 class RemoteDataSourceImpl implements RemoteDataSource {
@@ -70,17 +75,18 @@ class RemoteDataSourceImpl implements RemoteDataSource {
     required String email,
     required String password,
   }) async {
-    await _firebaseAuth.createUserWithEmailAndPassword(email: email, password: password);
+    await _firebaseAuth.createUserWithEmailAndPassword(
+        email: email, password: password);
   }
 
   @override
-  Future<bool> isUserInDataBase(String email) async {
-    bool userInDataBase = false;
-    await _firestore.collection('users').doc(email).get().then((value) {
-      if (value.exists) {
-        userInDataBase = true;
-      }
-    });
-    return userInDataBase;
+  Future<void> login({
+    required String email,
+    required String password,
+  }) async {
+    await _firebaseAuth.signInWithEmailAndPassword(
+      email: email,
+      password: password,
+    );
   }
 }

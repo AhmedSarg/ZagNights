@@ -38,7 +38,11 @@ class RegisterLayoutScreen extends StatelessWidget {
               child: BlocConsumer<RegisterLayoutViewModel, BaseStates>(
                 listener: (context, state) {
                   if (state is SuccessState) {
-                    Navigator.pushNamed(context, Routes.homeRoute);
+                    Navigator.pushNamedAndRemoveUntil(
+                      context,
+                      Routes.homeRoute,
+                      ModalRoute.withName('/'),
+                    );
                   }
                   else if (state is ErrorState) {
                     Navigator.pop(context);

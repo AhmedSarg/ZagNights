@@ -151,11 +151,9 @@ class JobSelector extends StatelessWidget {
     showDialog(
       context: context,
       builder: (context) => AlertDialog(
-        title: Expanded(
-          child: Text(
-            AppStrings.registerJobPageDialogTitle.tr(),
-            style: AppTextStyles.registerJobsDialogTitleTextStyle(context),
-          ),
+        title: Text(
+          AppStrings.registerJobPageDialogTitle.tr(),
+          style: AppTextStyles.registerJobsDialogTitleTextStyle(context),
         ),
         backgroundColor: ColorManager.black,
         surfaceTintColor: ColorManager.tertiary,
@@ -171,6 +169,7 @@ class JobSelector extends StatelessWidget {
                       Navigator.pop(context);
                       viewModel.setJob(e);
                     },
+                    splashColor: ColorManager.secondary,
                     title: Text(
                       e,
                       style: AppTextStyles.registerJobsDialogItemTextStyle(

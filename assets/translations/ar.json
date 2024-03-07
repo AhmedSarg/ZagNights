@@ -15,6 +15,7 @@
   "cacheError": "خطأ في التخزين",
   "noInternetError": "لا يوجد أنترنت",
   "emailAlreadyExists": "هذا الحساب مسجل بالفعل",
+  "loginFailed": "بريد الكتروني او كلمة مرور غير صحيحة",
   "emptyContent": "لا يوجد محتوي",
   "intentError": "لا يوجد محتوي",
 
@@ -36,6 +37,7 @@
   "loginScreenEmailLabel": "البريد الألكتروني",
   "loginScreenPasswordLabel": "كلمة السر",
   "loginScreenLoginButton": "تسجيل الدخول",
+  "loginScreenSuccessMessage": "تم تسجيل الدخول بنجاح",
 
   "registerNamePageTitle": "أكتب\nأسمك",
   "registerNamePageFirstNameLabel": "الأسم الأول",
