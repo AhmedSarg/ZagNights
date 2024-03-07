@@ -24,18 +24,19 @@ class RouteGenerator {
   static Route<dynamic> getRoute(RouteSettings settings) {
     switch (settings.name) {
       case Routes.splashRoute:
-        initSplashScreen();
+        initSignedUserUseCase();
         return MaterialPageRoute(builder: (_) => const SplashScreen());
       case Routes.selectionRoute:
         return MaterialPageRoute(builder: (_) => const SelectionScreen());
       case Routes.loginRoute:
-        initLoginScreen();
+        initLoginUseCase();
         return MaterialPageRoute(builder: (_) => const LoginScreen());
       case Routes.registerRoute:
-        initRegisterScreen();
+        initRegisterUseCase();
         return MaterialPageRoute(builder: (_) => const RegisterLayoutScreen());
       case Routes.homeRoute:
-        initHomeScreen();
+        initAppStatusUseCase();
+        initLogOutUseCase();
         return MaterialPageRoute(builder: (_) => const HomeLayout());
       default:
         return unDefinedRoute();

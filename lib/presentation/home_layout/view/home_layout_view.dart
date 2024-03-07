@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:zag_nights/presentation/resources/color_manager.dart';
+import 'package:zag_nights/presentation/resources/routes_manager.dart';
 
 import '../../../app/sl.dart';
 import '../../base/base_states.dart';
@@ -21,9 +22,14 @@ class HomeLayout extends StatelessWidget {
     return Scaffold(
       backgroundColor: ColorManager.secondary,
       body: BlocProvider(
-        create: (context) => HomeLayoutViewModel(sl())..start(),
+        create: (context) => HomeLayoutViewModel(sl(), sl())..start(),
         child: BlocConsumer<HomeLayoutViewModel, BaseStates>(
-          listener: (context, state) => baseListener(context, state),
+          listener: (context, state) {
+            if (state is LogOutState) {
+              Navigator.pushReplacementNamed(context, Routes.selectionRoute);
+            }
+            baseListener(context, state);
+          },
           builder: (context, state) {
             if (state is SoonState) {
               return const SoonScreen();

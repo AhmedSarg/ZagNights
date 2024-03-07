@@ -29,6 +29,7 @@ class AppStrings {
   //Selection Screen
   static const String selectionScreenLoginButton = "selectionScreenLoginButton";
   static const String selectionScreenRegisterButton = "selectionScreenRegisterButton";
+  static const String selectionScreenLanguageButton = "selectionScreenLanguageButton";
 
   //Login Screen
   static const String loginScreenEmailLabel = "loginScreenEmailLabel";
@@ -72,6 +73,7 @@ class AppStrings {
 
   //Soon Screen
   static const String soonScreenTitle = "soonScreenTitle";
+  static const String soonScreenLogOut = "soonScreenLogOut";
 
   //Validation Messages
   static const String validationsFieldRequired = "validationsFieldRequired";

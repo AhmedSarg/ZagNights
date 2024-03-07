@@ -10,6 +10,8 @@ abstract class CacheDataSource {
   // Future<bool> getOnBoardingFirstTime();
   User? getSignedUser();
 
+  Future<void> logout();
+
 }
 
 class CacheDataSourceImpl implements CacheDataSource {
@@ -22,6 +24,11 @@ class CacheDataSourceImpl implements CacheDataSource {
   @override
   User? getSignedUser() {
     return _firebaseAuth.currentUser;
+  }
+
+  @override
+  Future<void> logout() async {
+    await _firebaseAuth.signOut();
   }
 
 

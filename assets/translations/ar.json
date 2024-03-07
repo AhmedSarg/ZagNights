@@ -33,6 +33,7 @@
 
   "selectionScreenLoginButton": "تسجيل الدخول",
   "selectionScreenRegisterButton": "انشاء حساب",
+  "selectionScreenLanguageButton": "العربية",
 
   "loginScreenEmailLabel": "البريد الألكتروني",
   "loginScreenPasswordLabel": "كلمة السر",
@@ -67,5 +68,6 @@
 
   "registerLayoutSuccessMessage": "تم التسجيل بنجاح",
 
-  "soonScreenTitle": "انتظرونا قريباً"
+  "soonScreenTitle": "انتظرونا قريباً",
+  "soonScreenLogOut": "تسجيل الخروج"
 }

@@ -7,6 +7,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:zag_nights/data/network/fireauth_factory.dart';
 import 'package:zag_nights/domain/usecase/app_status_usecase.dart';
 import 'package:zag_nights/domain/usecase/get_signed_user_usecase.dart';
+import 'package:zag_nights/domain/usecase/log_out_usecase.dart';
 import 'package:zag_nights/domain/usecase/login_usecase.dart';
 import 'package:zag_nights/domain/usecase/register_usecase.dart';
 
@@ -56,25 +57,31 @@ Future<void> initAppModule() async {
       () => RepositoryImpl(sl(), sl(), sl()));
 }
 
-void initHomeScreen() {
+void initAppStatusUseCase() {
   if (GetIt.instance.isRegistered<AppStatusUseCase>() == false) {
     sl.registerFactory<AppStatusUseCase>(() => AppStatusUseCase(sl()));
   }
 }
 
-void initRegisterScreen() {
+void initRegisterUseCase() {
   if (GetIt.instance.isRegistered<RegisterUseCase>() == false) {
     sl.registerFactory<RegisterUseCase>(() => RegisterUseCase(sl()));
   }
 }
 
-void initLoginScreen() {
+void initLoginUseCase() {
   if (GetIt.instance.isRegistered<LoginUseCase>() == false) {
     sl.registerFactory<LoginUseCase>(() => LoginUseCase(sl()));
   }
 }
 
-void initSplashScreen() {
+void initLogOutUseCase() {
+  if (GetIt.instance.isRegistered<LogOutUseCase>() == false) {
+    sl.registerFactory<LogOutUseCase>(() => LogOutUseCase(sl()));
+  }
+}
+
+void initSignedUserUseCase() {
   if (GetIt.instance.isRegistered<GetSignedUserUseCase>() == false) {
     sl.registerFactory<GetSignedUserUseCase>(() => GetSignedUserUseCase(sl()));
   }

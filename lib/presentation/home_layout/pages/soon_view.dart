@@ -1,8 +1,8 @@
 import 'package:easy_localization/easy_localization.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
+import 'package:zag_nights/presentation/home_layout/viewmodel/home_layout_viewmodel.dart';
 
+import '../../common/widget/app_button.dart';
 import '../../resources/assets_manager.dart';
 import '../../resources/color_manager.dart';
 import '../../resources/strings_manager.dart';
@@ -32,12 +32,22 @@ class SoonScreen extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
+                    const Spacer(flex: 3),
                     Image.asset(ImageAssets.logoLight),
                     const SizedBox(height: AppSize.s10),
                     Text(
                       AppStrings.soonScreenTitle.tr(),
                       style: AppTextStyles.soonScreenTitleTextStyle(context),
                     ),
+                    const Spacer(flex: 3),
+                    AppButton(
+                      text: AppStrings.soonScreenLogOut.tr(),
+                      onPressed: () {
+                        HomeLayoutViewModel.get(context).logout();
+                      },
+                      outlined: true,
+                    ),
+                    const Spacer(),
                   ],
                 ),
               ),

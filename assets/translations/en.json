@@ -33,6 +33,7 @@
 
   "selectionScreenLoginButton": "Login",
   "selectionScreenRegisterButton": "Create Account",
+  "selectionScreenLanguageButton": "English",
 
   "loginScreenEmailLabel": "Email",
   "loginScreenPasswordLabel": "Password",
@@ -67,5 +68,6 @@
 
   "registerLayoutSuccessMessage": "Registered Successfully",
 
-  "soonScreenTitle": "Coming Soon"
+  "soonScreenTitle": "Coming Soon",
+  "soonScreenLogOut": "Log Out"
 }

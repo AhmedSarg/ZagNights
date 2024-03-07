@@ -23,4 +23,6 @@ abstract class Repository {
     required String password,
   });
 
+  Future<Either<Failure, void>> logout();
+
 }
