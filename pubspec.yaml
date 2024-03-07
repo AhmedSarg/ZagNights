@@ -98,26 +98,22 @@ flutter:
   # list giving the asset and other descriptors for the font. For
   # example:
   fonts:
-    - family: English
+    - family: Rubik
       fonts:
-      - asset: assets/fonts/english/NotoSans-Black.ttf
+      - asset: assets/fonts/english/Rubik-Black.ttf
         weight: 900
-      - asset: assets/fonts/english/NotoSans-ExtraBold.ttf
+      - asset: assets/fonts/english/Rubik-ExtraBold.ttf
         weight: 800
-      - asset: assets/fonts/english/NotoSans-Bold.ttf
+      - asset: assets/fonts/english/Rubik-Bold.ttf
         weight: 700
-      - asset: assets/fonts/english/NotoSans-SemiBold.ttf
+      - asset: assets/fonts/english/Rubik-SemiBold.ttf
         weight: 600
-      - asset: assets/fonts/english/NotoSans-Medium.ttf
+      - asset: assets/fonts/english/Rubik-Medium.ttf
         weight: 500
-      - asset: assets/fonts/english/NotoSans-Regular.ttf
+      - asset: assets/fonts/english/Rubik-Regular.ttf
         weight: 400
-      - asset: assets/fonts/english/NotoSans-Light.ttf
+      - asset: assets/fonts/english/Rubik-Light.ttf
         weight: 300
-      - asset: assets/fonts/english/NotoSans-ExtraLight.ttf
-        weight: 200
-      - asset: assets/fonts/english/NotoSans-Thin.ttf
-        weight: 100
     - family: Arabic
       fonts:
       - asset: assets/fonts/arabic/NotoSansArabic-Black.ttf
